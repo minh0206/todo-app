@@ -1,0 +1,67 @@
+<div class="container-fluid h-scroll" (scroll)="onScroll($event)">
+  <!-- Top bar -->
+  <div class="sticky-top bg-white d-flex justify-content-end">
+    <button type="button" class="btn btn-primary m-2">Mails</button>
+
+    <div class="position-absolute top-50 start-50 translate-middle">
+      <div [@flyInOut]="isScrolled ? 'flyIn' : 'flyOut'" class="text-center h2">
+        Inbox
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <!-- Header -->
+      <div [@scrolledTrigger]="isScrolled ? true : false" class="h1 mb-5">
+        Inbox
+      </div>
+
+      <!-- Task list -->
+      <div cdkDropListGroup>
+        <!-- Lists  -->
+        @for (list of lists; track list) {
+        <div>
+          <div class="h5">{{ list.name }}</div>
+          <div
+            cdkDropList
+            [cdkDropListData]="list.taskList"
+            (cdkDropListDropped)="drop($event)"
+          >
+            @for (item of list.taskList; track item) {
+
+            <div
+              class="task-box"
+              cdkDrag
+              [cdkDragData]="item"
+              (click)="viewTask(item)"
+            >
+              <form #form="ngForm">
+                <div class="d-flex align-items-center">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    [(ngModel)]="item.done"
+                    name="completed"
+                    (ngModelChange)="doneChanged(item)"
+                  />
+                  <div class="ms-2 mt-1 fs-5">{{ item.name }}</div>
+                </div>
+              </form>
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                (click)="delete(item)"
+              ></button>
+            </div>
+
+            }
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
