@@ -1,0 +1,12 @@
+/* .list-group-item.active {
+  background-color: blue;
+  border-color: blue;
+} */
+
+.transparent-backdrop {
+  background-color: transparent;
+}
+
+.side-bar {
+  width: 300px;
+}
