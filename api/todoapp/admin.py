@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Category, Todo
+from .models import Project, Todo
 
 # Register your models here.
-admin.site.register(Category)
+admin.site.register(Project)
 admin.site.register(Todo)
