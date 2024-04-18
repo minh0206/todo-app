@@ -1,0 +1,65 @@
+<!-- modal body -->
+<div class="modal-body">
+  <form #form="ngForm">
+    <input
+      class="form-control form-control-lg shadow-none border-0 fw-medium fs-5"
+      type="text"
+      ngAutoFocus
+      [(ngModel)]="name"
+      name="taskName"
+      placeholder="Task name"
+      aria-label="task name"
+    />
+    <input
+      class="form-control form-control-sm shadow-none border-0 ps-3"
+      type="text"
+      [(ngModel)]="description"
+      name="description"
+      placeholder="Description"
+      aria-label="description"
+    />
+  </form>
+</div>
+
+<!-- modal footer -->
+<div class="modal-footer">
+  <div class="d-flex" style="width: 100%">
+    <div ngbDropdown class="d-inline-block me-auto">
+      <button
+        type="button"
+        class="btn btn-light"
+        id="dropdown"
+        ngbDropdownToggle
+      >
+        {{ selectedSection }}
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdown">
+        @for (project of projects; track project) {
+        <button class="mb-2" ngbDropdownItem (click)="selectProject(project)">
+          {{ project.name }}
+        </button>
+        <button
+          *ngFor="let section of project.sections"
+          class="mb-2"
+          ngbDropdownItem
+          (click)="selectProjectSection(project, section)"
+        >
+          <div class="ms-3">{{ section.name }}</div>
+        </button>
+        }
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-light me-2"
+      (click)="activeModal.close()"
+    >
+      Cancel
+    </button>
+
+    <button type="button" class="btn btn-primary" (click)="addTodo()">
+      Add task
+    </button>
+  </div>
+</div>
