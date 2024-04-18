@@ -1,0 +1,16 @@
+<div class="mb-5">
+  <!-- section name -->
+  <div class="h5">{{ section.name }}</div>
+
+  <!-- section list -->
+  <div
+    class="section-list"
+    cdkDropList
+    [cdkDropListData]="section.todos"
+    (cdkDropListDropped)="drop($event)"
+  >
+    @for (todo of section.todos; track todo) {
+    <app-todo-detail [todo]="todo"></app-todo-detail>
+    }
+  </div>
+</div>
