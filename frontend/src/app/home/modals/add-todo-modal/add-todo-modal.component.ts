@@ -1,10 +1,10 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Project } from '../../models/project';
-import { ProjectService } from '../../services/project.service';
-import { Section } from '../../models/section';
-import { Todo } from '../../models/todo';
-import { TodoService } from '../../services/todo.service';
+import { Project } from '../../../models/project';
+import { ProjectService } from '../../../services/project.service';
+import { Section } from '../../../models/section';
+import { Todo } from '../../../models/todo';
+import { TodoService } from '../../../services/todo.service';
 
 @Component({
   selector: 'app-add-todo-modal',

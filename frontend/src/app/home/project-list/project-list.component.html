@@ -1,0 +1,24 @@
+<div class="list-group p-3">
+  <!-- projects -->
+  <a
+    class="list-group-item"
+    [routerLink]="['/home', 'projects']"
+    ariaCurrentWhenActive="page"
+    routerLinkActive="active"
+  >
+    My projects
+    <span class="badge text-bg-secondary rounded-pill">14</span>
+  </a>
+
+  <!-- project -->
+  <a
+    *ngFor="let project of projects"
+    class="list-group-item"
+    [routerLink]="['/home', 'project', project.id]"
+    ariaCurrentWhenActive="page"
+    routerLinkActive="active"
+  >
+    {{ project.name }}
+    <span class="badge text-bg-secondary rounded-pill">14</span>
+  </a>
+</div>

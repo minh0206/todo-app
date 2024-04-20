@@ -1,0 +1,67 @@
+<div class="d-flex m-2">
+  <div ngbDropdown class="d-inline-block me-auto">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      id="dropdown"
+      ngbDropdownToggle
+    >
+      User
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdown">
+      <button ngbDropdownItem (click)="logout()">Log out</button>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-outline-primary">Collapse</button>
+</div>
+
+<div class="list-group p-3">
+  <!-- Add task -->
+  <button
+    type="button"
+    class="list-group-item text-start"
+    (click)="openAddTodoModal()"
+  >
+    <i class="bi bi-plus-circle-fill"></i>
+    Add task
+  </button>
+
+  <!-- Search -->
+  <button type="button" class="list-group-item text-start">Search</button>
+
+  <!-- Inbox -->
+  <a
+    routerLink="inbox"
+    ariaCurrentWhenActive="page"
+    routerLinkActive="active"
+    class="list-group-item"
+    data-bs-toggle="list"
+  >
+    Inbox
+    <span class="badge text-bg-secondary rounded-pill">14</span>
+  </a>
+
+  <!-- Today -->
+  <a
+    routerLink="today"
+    ariaCurrentWhenActive="page"
+    routerLinkActive="active"
+    class="list-group-item list-group-item-action"
+    data-bs-toggle="list"
+  >
+    Today
+    <span class="badge text-bg-secondary rounded-pill">14</span>
+  </a>
+
+  <!-- Upcoming -->
+  <a
+    href="#"
+    class="list-group-item list-group-item-action"
+    data-bs-toggle="list"
+  >
+    Upcoming
+  </a>
+</div>
+
+<app-project-list></app-project-list>

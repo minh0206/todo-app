@@ -1,7 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { TaskListService } from '../services/task-list.service';
-import { TaskList } from '../models/task-list';
-import { TaskItem } from '../models/task-item';
+
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -14,6 +12,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { Todo } from '../../models/todo';
 
 @Component({
   selector: 'app-inbox',
@@ -50,25 +49,28 @@ import {
 })
 export class InboxComponent {
   isScrolled: boolean = false;
-  lists: TaskList[] = this.taskListService.getItems();
 
-  constructor(private taskListService: TaskListService) {}
+  categories: any;
+  lists: any;
+  // this.taskListService.getItems();
 
-  viewTask(task: TaskItem) {
+  constructor() {}
+
+  viewTask(task: Todo) {
     console.log(task);
   }
 
-  delete(task: TaskItem) {
-    this.taskListService.deleteTask(task);
+  delete(task: Todo) {
+    // this.taskListService.deleteTask(task);
   }
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      this.taskListService.addTask(
-        { name: 'Get to work', description: 'task description', done: false },
-        'To do'
-      );
+      // this.taskListService.addTask(
+      //   { name: 'Get to work', description: 'task description', done: false },
+      //   'To do'
+      // );
     }
   }
 
@@ -80,7 +82,7 @@ export class InboxComponent {
     }
   }
 
-  drop(event: CdkDragDrop<TaskItem[]>) {
+  drop(event: CdkDragDrop<Todo[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -95,7 +97,7 @@ export class InboxComponent {
         event.currentIndex
       );
 
-      let item: TaskItem = event.item.data;
+      let item: Todo = event.item.data;
       if (event.container.id === 'cdk-drop-list-0') {
         item.done = false;
       } else {
@@ -104,21 +106,19 @@ export class InboxComponent {
     }
   }
 
-  doneChanged(taskItem: TaskItem) {
-    const todoList = this.lists.find((list) => list.name === 'To do')?.taskList;
-    const doneList = this.lists.find((list) => list.name === 'Done')?.taskList;
-
-    if (!todoList) return;
-    if (!doneList) return;
-
-    if (taskItem.done) {
-      let currentIndex = todoList.indexOf(taskItem);
-      let targetIndex: number = doneList.length;
-      transferArrayItem(todoList, doneList, currentIndex, targetIndex);
-    } else {
-      let currentIndex = doneList.indexOf(taskItem);
-      let targetIndex: number = todoList.length;
-      transferArrayItem(doneList, todoList, currentIndex, targetIndex);
-    }
+  doneChanged(taskItem: Todo) {
+    // const todoList = this.lists.find((list) => list.name === 'To do')?.taskList;
+    // const doneList = this.lists.find((list) => list.name === 'Done')?.taskList;
+    // if (!todoList) return;
+    // if (!doneList) return;
+    // if (taskItem.done) {
+    //   let currentIndex = todoList.indexOf(taskItem);
+    //   let targetIndex: number = doneList.length;
+    //   transferArrayItem(todoList, doneList, currentIndex, targetIndex);
+    // } else {
+    //   let currentIndex = doneList.indexOf(taskItem);
+    //   let targetIndex: number = todoList.length;
+    //   transferArrayItem(doneList, todoList, currentIndex, targetIndex);
+    // }
   }
 }
