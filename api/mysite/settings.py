@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "corsheaders",
     "django_seed",
+    "core",
     "todoapp",
 ]
 
@@ -85,6 +86,8 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 WSGI_APPLICATION = "mysite.wsgi.application"
+
+AUTH_USER_MODEL = "core.User"
 
 
 # Database
