@@ -1,0 +1,39 @@
+<div class="d-flex vh-100 bg-body-secondary">
+  <div class="align-self-center mx-auto">
+    <form class="form d-flex flex-column" (ngSubmit)="onSubmit()">
+      <h2 class="text-center">Log in</h2>
+
+      <div class="mb-4">
+        <label class="fw-medium" for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="fw-medium" for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          autocomplete="on"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary mx-5">Log in</button>
+
+      <div class="d-flex flex-row mt-3 justify-content-center">
+        <p>Don't have an account?</p>
+        <a class="ms-1" href="/auth/signup">Sign Up</a>
+      </div>
+    </form>
+  </div>
+</div>
