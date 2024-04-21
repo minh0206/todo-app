@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,11 +12,13 @@ export class SignUpComponent implements OnInit {
   username: string = '';
   password: string = '';
 
-  onSubmit() {
-    throw new Error('Method not implemented.');
-  }
+  errorMessage$: Observable<any> = this.authService.errorMessage$;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
+
+  onSubmit() {
+    this.authService.signup(this.username, this.password);
+  }
 }

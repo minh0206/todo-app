@@ -15,7 +15,7 @@
         />
       </div>
 
-      <div class="mb-4">
+      <div class="mb-3">
         <label class="fw-medium" for="password">Password</label>
         <input
           type="password"
@@ -26,6 +26,12 @@
           autocomplete="on"
           required
         />
+      </div>
+
+      <div *ngIf="errorMessage$ | async as errorMessage">
+        <p *ngIf="errorMessage.detail" class="text-danger text-center">
+          Wrong username or password
+        </p>
       </div>
 
       <button type="submit" class="btn btn-primary mx-5">Log in</button>

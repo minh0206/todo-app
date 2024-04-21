@@ -23,8 +23,18 @@
           id="password"
           [(ngModel)]="password"
           name="password"
+          autocomplete="on"
           required
         />
+      </div>
+
+      <div *ngIf="errorMessage$ | async as errorMessage">
+        <p *ngIf="errorMessage.username" class="text-danger text-center">
+          {{ errorMessage.username[0] }}
+        </p>
+        <p *ngIf="errorMessage.password" class="text-danger text-center">
+          {{ errorMessage.password[0] }}
+        </p>
       </div>
 
       <button type="submit" class="btn btn-primary mx-5">Sign up</button>

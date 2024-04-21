@@ -1,4 +1,9 @@
-import { Component, TemplateRef, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  TemplateRef,
+  ViewEncapsulation,
+  inject,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TodoService } from '../../services/todo.service';
@@ -11,10 +16,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./side-bar.component.css'],
 })
 export class SideBarComponent {
-  constructor(
-    private modalService: NgbModal,
-    private authService: AuthService
-  ) {}
+  authService = inject(AuthService);
+
+  constructor(private modalService: NgbModal) {}
 
   logout() {
     this.authService.logout();
