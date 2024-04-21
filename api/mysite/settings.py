@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "djoser",
     "debug_toolbar",
     "corsheaders",
     "django_seed",
@@ -89,6 +90,15 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 AUTH_USER_MODEL = "core.User"
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
+
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
