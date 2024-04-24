@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { TodayComponent } from './today/today.component';
-import { ProjectsDetailComponent } from './projects-detail/projects-detail.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { authGuard } from '../auth/auth.guard';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 const homeRoutes: Routes = [
   {
@@ -18,7 +18,7 @@ const homeRoutes: Routes = [
         children: [
           { path: 'inbox', component: InboxComponent },
           { path: 'today', component: TodayComponent },
-          { path: 'projects', component: ProjectsDetailComponent },
+          { path: 'projects', component: ProjectListComponent },
           {
             path: 'project',
             children: [{ path: ':id', component: ProjectDetailComponent }],

@@ -6,3 +6,28 @@
 .transparent-backdrop {
   background-color: transparent;
 }
+
+.list-group {
+  width: 300px;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: 0px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.list-group-item:hover {
+  background-color: #f5f5f5;
+}
+
+.list-group-item.active {
+  color: #000fe7;
+  background-color: #8aafff7c;
+}
+
+.list-group-item.active::hover {
+  /* Override the hover background color to maintain the active color */
+  background-color: inherit; /* Inherits the background color from the active state */
+}

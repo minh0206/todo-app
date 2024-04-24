@@ -8,11 +8,9 @@ import { ProjectService } from '../../services/project.service';
   styleUrl: './project-list.component.css',
 })
 export class ProjectListComponent {
-  projects!: Project[];
+  constructor(private projectService: ProjectService) {}
 
-  constructor(private projectService: ProjectService) {
-    this.projectService.getProjects().subscribe((data) => {
-      this.projects = data;
-    });
+  addProject() {
+    throw new Error('Method not implemented.');
   }
 }

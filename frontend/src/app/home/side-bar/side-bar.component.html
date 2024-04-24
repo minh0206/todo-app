@@ -64,4 +64,27 @@
   </a>
 </div>
 
-<app-project-list></app-project-list>
+<div class="list-group p-3" *ngIf="projects$ | async as projects">
+  <!-- projects -->
+  <a
+    class="list-group-item"
+    [routerLink]="['/home', 'projects']"
+    ariaCurrentWhenActive="page"
+    routerLinkActive="active"
+  >
+    My projects
+    <button class="btn btn-primary">aaaasf</button>
+  </a>
+
+  <!-- project -->
+  <a
+    *ngFor="let project of projects"
+    class="list-group-item"
+    [routerLink]="['/home', 'project', project.id]"
+    ariaCurrentWhenActive="page"
+    routerLinkActive="active"
+  >
+    {{ project.name }}
+    <span class="badge text-bg-secondary rounded-pill">14</span>
+  </a>
+</div>

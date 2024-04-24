@@ -1,24 +1,31 @@
-<div class="list-group p-3">
-  <!-- projects -->
-  <a
-    class="list-group-item"
-    [routerLink]="['/home', 'projects']"
-    ariaCurrentWhenActive="page"
-    routerLinkActive="active"
-  >
-    My projects
-    <span class="badge text-bg-secondary rounded-pill">14</span>
-  </a>
+<div class="container">
+  <div class="row">
+    <div class="col-5 bg-light">
+      <div class="h2 mb-4">My Projects</div>
 
-  <!-- project -->
-  <a
-    *ngFor="let project of projects"
-    class="list-group-item"
-    [routerLink]="['/home', 'project', project.id]"
-    ariaCurrentWhenActive="page"
-    routerLinkActive="active"
-  >
-    {{ project.name }}
-    <span class="badge text-bg-secondary rounded-pill">14</span>
-  </a>
+      <div class="vstack gap-3">
+        <div class="d-flex align-items-end border-bottom">
+          <div class="fw-medium me-auto m-1">projects</div>
+          <button class="btn btn-primary btn-sm m-1" (click)="addProject()">
+            +
+          </button>
+        </div>
+
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">
+            The current link item
+          </a>
+          <a href="#" class="list-group-item list-group-item-action"
+            >A second link item</a
+          >
+          <a href="#" class="list-group-item list-group-item-action"
+            >A third link item</a
+          >
+          <a href="#" class="list-group-item list-group-item-action"
+            >A fourth link item</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
