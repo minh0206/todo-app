@@ -32,7 +32,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              }
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -100,6 +105,14 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/todo-app",
+            "netlifyToken": "nfp_TCK1rhcw9WK3xWQcizMnzTdYzGoJJo6985b6",
+            "siteId": "7f082d09-7d2e-435f-ac74-9549eb3f5d09"
           }
         }
       }
