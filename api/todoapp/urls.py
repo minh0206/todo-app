@@ -5,7 +5,7 @@ from . import views
 
 # Create a router and register our ViewSets with it.
 router = routers.DefaultRouter()
-router.register("projects", views.ProjectViewSet)
+router.register("projects", views.ProjectViewSet, basename="project")
 
 projects_router = routers.NestedDefaultRouter(router, "projects", lookup="project")
 projects_router.register("sections", views.SectionViewSet, basename="project-sections")

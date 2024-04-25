@@ -13,8 +13,13 @@ from rest_framework import viewsets
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        print(user.id)
+
+        return Project.objects.filter(user=user.id)
 
 
 class SectionViewSet(viewsets.ModelViewSet):
