@@ -6,7 +6,8 @@ import { Section } from '../models/section';
 
 @Injectable()
 export class ProjectService {
-  url = 'http://127.0.0.1:8000/todoapp/projects/';
+  url =
+    'https://agile-depths-63211-0290749cc0cd.herokuapp.com/todoapp/projects/';
 
   constructor(private http: HttpClient) {}
 

@@ -5,7 +5,7 @@ import { Todo } from '../models/todo';
 
 @Injectable()
 export class TodoService {
-  url = 'http://127.0.0.1:8000/todoapp/todos/';
+  url = 'https://agile-depths-63211-0290749cc0cd.herokuapp.com/todoapp/todos/';
 
   private addedTodoSubject = new Subject<Todo>();
   addedTodo$ = this.addedTodoSubject.asObservable();

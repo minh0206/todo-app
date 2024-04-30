@@ -8,7 +8,8 @@ import { Observable, Subject, catchError, of, throwError } from 'rxjs';
 })
 export class AuthService {
   private errorSubject = new Subject<any>();
-  private url = 'http://127.0.0.1:8000/auth';
+  // private url = 'http://127.0.0.1:8000/auth';
+  private url = 'https://agile-depths-63211-0290749cc0cd.herokuapp.com/auth';
 
   errorMessage$ = this.errorSubject.asObservable();
   isLoggedIn: boolean = false;
